@@ -1,16 +1,29 @@
 import React from 'react';
 import { KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
+import { connect } from 'react-redux';
+import { addTask } from '../redux/actions';
 
-const NewTask = () => {
+const NewTask = ({ addTask }) => {
+  const [task, setTask] = React.useState('');
+  // const [taskItems, setTaskItems] = useState([]);
+  
+  const handleAddTask = () => {
+    addTask(task),
+    setTask('')
+  }
+
   return (
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.newTaskWrapper}>
         <TextInput 
           style={styles.newTaskInput}
-          placeholder={'new task'}></TextInput>
-        <TouchableOpacity>
+          placeholder={'new task'}
+          value={task}
+          onChangeText={task => setTask(task)}             
+          />
+        <TouchableOpacity onPress={handleAddTask}>
           <View style={styles.addButton}>
             <Text style={styles.buttonText}>+</Text>
           </View>
@@ -26,7 +39,8 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: 15
   },
   newTaskInput: {
     paddingVertical: 15,
@@ -53,4 +67,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default NewTask;
+export default connect(
+  null,
+  { addTask }
+)(NewTask);
