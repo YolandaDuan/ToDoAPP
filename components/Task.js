@@ -5,6 +5,8 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { connect } from 'react-redux';
 import { deleteTask, toggleComplete } from '../redux/actions';
 
+import { themeColor } from '../constants';
+
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
@@ -22,10 +24,10 @@ const Task = ({id, text, isCompleted, deleteTask, toggleComplete}) => {
             <View style={styles.left}>
                 <BouncyCheckbox
                     size={20}
-                    fillColor='#48D1CC'
-                    unfillColor='#FFFFFF'                 
-                    iconStyle={{ borderColor: '#48D1CC' }}
-                    isChecked={ isCompleted }
+                    fillColor={themeColor}
+                    unfillColor='white'                 
+                    iconStyle={{borderColor: themeColor}}
+                    isChecked={isCompleted}
                     onPress={toggleTask}
                     ></BouncyCheckbox>
                 <Text style={isCompleted ? styles.taskDoneText : styles.taskText}>{text}</Text>
@@ -33,7 +35,7 @@ const Task = ({id, text, isCompleted, deleteTask, toggleComplete}) => {
 
             <TouchableOpacity onPress={handleDeleteTask}>
                 <View>
-                    <FontAwesomeIcon icon={faTrashAlt} />
+                    <FontAwesomeIcon icon={faTrashAlt} style={styles.deleteIcon}/>
                 </View>
             </TouchableOpacity>       
         </View>
@@ -42,7 +44,7 @@ const Task = ({id, text, isCompleted, deleteTask, toggleComplete}) => {
 
 const styles = StyleSheet.create({
     task: {
-        backgroundColor: '#FFF',
+        backgroundColor: 'white',
         padding: 15,
         borderRadius: 10,
         flexDirection: 'row',
@@ -64,6 +66,9 @@ const styles = StyleSheet.create({
         fontSize: 15,
         textDecorationLine: 'line-through'
     },
+    deleteIcon: {
+        color: 'red'
+    }
 });
 
 export default connect(

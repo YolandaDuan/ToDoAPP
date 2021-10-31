@@ -4,6 +4,8 @@ import { KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableO
 import { connect } from 'react-redux';
 import { addTask } from '../redux/actions';
 
+import { themeColor } from '../constants';
+
 const NewTask = ({ addTask }) => {
   const [task, setTask] = React.useState('');
   
@@ -44,9 +46,9 @@ const styles = StyleSheet.create({
   newTaskInput: {
     paddingVertical: 15,
     paddingHorizontal: 15,
-    backgroundColor: '#FFF',
+    backgroundColor: 'white',
     borderRadius: 10,
-    borderColor: '#48D1CC',
+    borderColor: themeColor,
     borderWidth: 1,
     width: 280,
     bottom: 35
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
   addButton: {
     width: 50,
     height: 50,
-    backgroundColor: '#48D1CC',
+    backgroundColor: themeColor,
     borderRadius: 60,
     justifyContent: 'center',
     alignItems: 'center',
