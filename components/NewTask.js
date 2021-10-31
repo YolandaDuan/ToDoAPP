@@ -6,7 +6,6 @@ import { addTask } from '../redux/actions';
 
 const NewTask = ({ addTask }) => {
   const [task, setTask] = React.useState('');
-  // const [taskItems, setTaskItems] = useState([]);
   
   const handleAddTask = () => {
     addTask(task),
@@ -35,12 +34,12 @@ const NewTask = ({ addTask }) => {
 const styles = StyleSheet.create({
   newTaskWrapper: {
     position: 'absolute',
-    bottom: 60,
+    bottom: 20,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    padding: 15
+    padding: 15,
   },
   newTaskInput: {
     paddingVertical: 15,
@@ -49,8 +48,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: '#48D1CC',
     borderWidth: 1,
-    width: 300,
-
+    width: 280,
+    bottom: 35
   },
   addButton: {
     width: 50,
@@ -60,7 +59,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: '#C0C0C0',
-    borderWidth: 1
+    borderWidth: 1,
+    bottom: 35
   },
   buttonText: {
     fontSize: 20

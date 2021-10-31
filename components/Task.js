@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button, Alert } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 import { connect } from 'react-redux';
 import { deleteTask, toggleComplete } from '../redux/actions';
+
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Task = ({id, text, isCompleted, deleteTask, toggleComplete}) => {
     const handleDeleteTask = () => {
@@ -27,11 +30,12 @@ const Task = ({id, text, isCompleted, deleteTask, toggleComplete}) => {
                     ></BouncyCheckbox>
                 <Text style={isCompleted ? styles.taskDoneText : styles.taskText}>{text}</Text>
             </View>
-            <Button 
-                title='X'
-                color = '#B22222'
-                onPress={handleDeleteTask} 
-            />
+
+            <TouchableOpacity onPress={handleDeleteTask}>
+                <View>
+                    <FontAwesomeIcon icon={faTrashAlt} />
+                </View>
+            </TouchableOpacity>       
         </View>
     )
 }
