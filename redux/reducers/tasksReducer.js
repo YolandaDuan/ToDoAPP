@@ -1,4 +1,5 @@
 import { types } from "../actionTypes";
+import { produce } from 'immer';
 
 const initialState = {
     tasks: []
@@ -8,29 +9,25 @@ export default function(state = initialState, action) {
     switch (action.type) {
         case types.new: {
             const  { id, text } = action.payload;
-            return {
-                ...state,
-                tasks: [...state.tasks, {id, text, isComplete: false}]   
-            };
+            
+            return produce(state, draft => {
+                draft.tasks.push({id, text, isCompleted: false})
+            });
         }
         case types.delete: {
             const { id } = action.payload;
-            return  {
-                ...state,
-                tasks: state.tasks.filter((task) => task.id != id)
-            };
+            
+            return produce(state, draft => {
+                draft.tasks = draft.tasks.filter((task) => task.id !== id)
+            });
         }
         case types.toggleComplete: {
             const { id } = action.payload;
-            const task = state.tasks.find((task) => task.id == id);
-            const taskIndex = state.tasks.findIndex((task) => task.id == id);
-            const newList = [...state.tasks];
-            newList.splice(taskIndex, 1, {...task, isComplete: !task.isComplete});
 
-            return  {
-                ...state,
-                tasks: newList
-            };
+            return produce(state, draft => {
+                const task = draft.tasks.find((task) => task.id == id);
+                task.isCompleted = !task.isCompleted; 
+            })
         }
         default: 
             return state;
