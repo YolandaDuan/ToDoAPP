@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "myToDo",
-    "slug": "myToDo",
+    "name": "Task Management App",
+    "slug": "todoapp-malmsduan",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -10,7 +10,14 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "packagerOpts": { "config": "metro.config.js", "sourceExts": ["js","jsx","svg"] },
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": [
+        "js",
+        "jsx",
+        "svg"
+      ]
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -28,6 +35,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": ""
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import Task from './components/Task';
 import NewTask from './components/NewTask';
@@ -15,7 +15,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 
 function TaskList({ tasks, emptyMessage }) {
   return (
-    <View style={styles.tasksWrapper}>
+    <ScrollView style={styles.tasksWrapper}>
       {!tasks.length ? 
         <View style={styles.emptyView}>
           <Text style={styles.emptyText}>{emptyMessage}</Text> 
@@ -25,7 +25,7 @@ function TaskList({ tasks, emptyMessage }) {
           { tasks.map(task => <Task key={task.id} id={task.id} text={task.text} isCompleted={task.isCompleted} />) }
         </View>
       }
-    </View>
+    </ScrollView>
   )
 }
 
