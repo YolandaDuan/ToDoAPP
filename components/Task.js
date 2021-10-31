@@ -8,15 +8,15 @@ const Task = (props) => {
             <View style={styles.left}>
                 <BouncyCheckbox
                     size={20}
-                    fillColor='green'
+                    fillColor='#48D1CC'
                     unfillColor='#FFFFFF'                 
-                    iconStyle={{ borderColor: 'green' }}
+                    iconStyle={{ borderColor: '#48D1CC' }}
                     ></BouncyCheckbox>
                 <Text style={styles.taskText}>{props.text}</Text>
             </View>
             <Button 
                 title='X'
-                color = 'red'
+                color = '#B22222'
                 onPress={() => Alert.alert('test button')} />
         </View>
     )
