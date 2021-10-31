@@ -17,8 +17,8 @@ export const deleteTask = (id) => ({
     }
 });
 
-export const completeTask = (id) => ({
-    type: types.isComplete,
+export const toggleComplete = (id) => ({
+    type: types.toggleComplete,
     payload: {
         id
     }

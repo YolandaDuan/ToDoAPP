@@ -12,7 +12,7 @@ function Todo({ tasks }) {
           Tasks Management
         </Text>
         <View style={styles.tasksList}>
-          { tasks.map(task => <Task text={task.text} />) }
+          { tasks.map(task => <Task key={task.id} id={task.id} text={task.text} isCompleted={task.isCompleted} />) }
         </View>
       </View>
 

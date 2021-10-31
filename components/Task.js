@@ -2,7 +2,18 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button, Alert } from 'react-native';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
-const Task = (props) => {
+import { connect } from 'react-redux';
+import { deleteTask, toggleComplete } from '../redux/actions';
+
+const Task = ({id, text, isCompleted, deleteTask, toggleComplete}) => {
+    const handleDeleteTask = () => {
+        deleteTask(id)
+      }
+    
+    const toggleTask = () => {
+        toggleComplete(id)
+    } 
+
     return (
         <View style={styles.task}>
             <View style={styles.left}>
@@ -11,13 +22,16 @@ const Task = (props) => {
                     fillColor='#48D1CC'
                     unfillColor='#FFFFFF'                 
                     iconStyle={{ borderColor: '#48D1CC' }}
+                    isChecked={ isCompleted }
+                    onPress={toggleTask}
                     ></BouncyCheckbox>
-                <Text style={styles.taskText}>{props.text}</Text>
+                <Text style={isCompleted ? styles.taskDoneText : styles.taskText}>{text}</Text>
             </View>
             <Button 
                 title='X'
                 color = '#B22222'
-                onPress={() => Alert.alert('test button')} />
+                onPress={handleDeleteTask} 
+            />
         </View>
     )
 }
@@ -41,6 +55,14 @@ const styles = StyleSheet.create({
         maxWidth: '80%',
         fontSize: 15
     },
+    taskDoneText: {
+        maxWidth: '80%',
+        fontSize: 15,
+        textDecorationLine: 'line-through'
+    },
 });
 
-export default Task;
+export default connect(
+    null,
+    { deleteTask, toggleComplete }
+  )(Task);
