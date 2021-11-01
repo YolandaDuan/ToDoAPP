@@ -3,7 +3,7 @@
 ## Tech stack
 - React native
 - Redux
-- Expo cli
+- Expo cli, Expo Go
 
 ## Functionalities
 - Add new task.
@@ -14,7 +14,7 @@
 - Show completed tasks.
 - Add count number for tasks when swith tabs.
 - Provide reminder message when tasks panel is empty. 
-
+- Publish app 
 
 ## Run it locally
 ```
@@ -23,16 +23,17 @@ yarn ios
 yarn android
 ```
 ## Run it on your mobile device
-Open the camera app on your device and scan the code below to view this app. 
+1. Download app Expo Go to your mobile device. 
+2. Open camera on your device and scan the code below to view this app on Expo Go. 
 
 ![App Code](/assets/appCode.png)
 
 ## Potential features
-- Modal
+- Edit task
+- Search
 - Test
 - Authentication
-- TypeScript
-
+- Type check, e.g. TypeScript
 
 ## Reference
 - Nice checkbox: [react-native-boundy-checkbox](https://github.com/WrathChaos/react-native-bouncy-checkbox).

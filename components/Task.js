@@ -28,6 +28,7 @@ const Task = ({id, text, isCompleted, deleteTask, toggleComplete}) => {
                     unfillColor='white'                 
                     iconStyle={{borderColor: themeColor}}
                     isChecked={isCompleted}
+                    disableBuiltInState
                     onPress={toggleTask}
                     ></BouncyCheckbox>
                 <Text style={isCompleted ? styles.taskDoneText : styles.taskText}>{text}</Text>
