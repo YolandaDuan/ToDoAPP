@@ -80,12 +80,13 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    height: '80%'
+    justifyContent: 'center',
+    alignSelf: 'center',
+    height: '200%',
+    maxWidth: '80%'
   },
   emptyText: {
-    fontSize: 20,
-    position: 'relative',
+    fontSize: 22,
     fontWeight: 'bold',
     textAlign: 'center'
   }
